@@ -19,6 +19,7 @@ class WordGame {
         this.closeModalButton = document.getElementById('closeModal');
         this.playAgainButton = document.getElementById('playAgainButton');
         this.playAgainContainer = document.getElementById('playAgainContainer');
+        this.highScoreElement = document.getElementById('highScore');
     }
 
     // Initialize game state variables
@@ -29,6 +30,7 @@ class WordGame {
         this.submittedWords = new Set();
         this.nineLetterWord = '';
         this.timerInterval = null;
+        this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
 
         // Predefined array of nine-letter words
         this.nineLetterWords = [
@@ -91,6 +93,7 @@ class WordGame {
         this.generateLetters();
         this.startTimer();
         this.wordInput.focus();
+        this.highScoreElement.textContent = this.highScore;
     }
 
     // Reset the game state
@@ -264,6 +267,17 @@ class WordGame {
         if (!this.submittedWords.has(this.nineLetterWord)) {
             this.showMessage(`The nine-letter word was "${this.nineLetterWord.toUpperCase()}".`);
         }
+        // Check and update high score
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+            localStorage.setItem('highScore', this.highScore);
+            this.showMessage(`New High Score: ${this.highScore}!`);
+    }
+
+    // Update the high score display
+    this.highScoreElement.textContent = this.highScore;
+
+        
         this.playAgainContainer.style.display = 'flex';
     }
 
