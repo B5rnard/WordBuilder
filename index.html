@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Builder Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:wght@400;600&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Word Builder</h1>
+        </header>
+
+        <main class="app-main">
+            <!-- Letters Display -->
+            <div class="letters-container" id="letters">
+                <!-- Letters will be dynamically inserted here -->
+            </div>
+
+            <!-- Input Field -->
+            <div class="input-container">
+                <input type="text" id="wordInput" placeholder="Type your word" autocomplete="off" aria-label="Type your word">
+            </div>
+
+            <!-- Message Display -->
+            <div id="message" class="message-container"></div>
+
+            <!-- Score and Timer -->
+            <div class="status-container">
+                <div class="status-item">
+                    <p>Score</p>
+                    <span id="score">0</span>
+                </div>
+                <div class="status-item">
+                    <p>Time Left</p>
+                    <span id="timer">30</span>
+                </div>
+            </div>
+
+            <!-- Play Again Button -->
+            <div id="playAgainContainer" class="play-again-container">
+                <button id="playAgainButton" class="play-again-button">Play Again</button>
+            </div>
+
+            <!-- Guessed Words -->
+            <div class="guessed-words-container">
+                <!-- Guessed words will be displayed here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close-button">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
